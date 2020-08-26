@@ -76,7 +76,7 @@ class SearchBar extends Component {
         if(results !== undefined){
             return(
                 <div className="results-container">
-                    <h4 style={{textAlign:"justify"}}>Results for {keyword}...</h4>
+                    <h4 style={{textAlign:"justify", padding:"10px 30px"}}>Results for {keyword}...</h4>
                     <ul>
                         {results.map( movie =>{
                             return(
@@ -153,7 +153,7 @@ class SearchBar extends Component {
                     
                     {/*Nominations Result*/}
                     <div className="nominations-container">
-                        <h3>Nominations</h3>
+                    <h4 style={{textAlign:"justify", padding:"10px 30px"}}>Nominations</h4>
                         {!(this.props.mainPageState.nominations.length) ? (
                             <p>No nominations added. Please search for a movie and add them.</p>
                         ):(
@@ -166,7 +166,7 @@ class SearchBar extends Component {
             
                 
                 {/*Too many results or movie not found*/}
-               { error && <h4>{error}</h4> }
+               { error && <h3 className="errorMessage">{error}</h3> }
                 
                <img  src={Loader} className={`search-loading ${isLoading ? 'show' : 'hide' }`}  alt="loader"/>
 

@@ -14,12 +14,8 @@
     width: auto;
 }
 
-/* ul {
-    list-style: square;
-    display: block;
+.errorMessage{
+    color: white;
+    padding-top: 5%;
+    font-weight: bold;
 }
-li {
-    line-height: 18px;
-    margin-bottom: 12px;
-    display: inline-block;
-} */
