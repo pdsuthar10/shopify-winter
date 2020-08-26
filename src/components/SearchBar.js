@@ -7,6 +7,7 @@ import {
     InputGroup,
     Col
 } from "reactstrap";
+import { Alert } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import Results from './Results'
@@ -20,7 +21,7 @@ class SearchBar extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { keyword: "", results : [], error: "", isLoading: false};
+        this.state = { keyword: "", results : [], error: "", isLoading: false, showAlert: false};
     
         this.cancel = ''
     }
@@ -99,7 +100,9 @@ class SearchBar extends Component {
                     <ul>
                         {nominations.map( movie =>{
                             return(
-                                <Nominations movie={movie}/>
+                                <React.Fragment key={movie.imdbID}>
+                                    <Nominations movie={movie}/>
+                                </React.Fragment>
                             )
                         })}
                     </ul>
@@ -108,12 +111,25 @@ class SearchBar extends Component {
         }
     }
 
+    
+
+
     render() {
         console.log(this.props);
         const {error, isLoading } = this.state;
         return (
             <div>
                 <br/><br/>
+                {/*Show banner if number of nominations equals 5*/}
+                {
+                    this.props.mainPageState.nominations.length === 5 &&
+                    <Alert variant="success">
+                        <Alert.Heading>5 nominations added</Alert.Heading>
+                        <p>You have nominated 5 movies! Enjoy!</p>
+                    </Alert>
+                }
+
+
                 {/*Form for Movie Search*/}
                 <div style={{padding:"0 20%", margin: "0", width:"auto"}}> 
                         <Col>
@@ -154,7 +170,7 @@ class SearchBar extends Component {
                 
                <img  src={Loader} className={`search-loading ${isLoading ? 'show' : 'hide' }`}  alt="loader"/>
 
-               {/*Show banner if number of nominations equals 5*/}
+               
             </div>
         )
     }
