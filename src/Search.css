@@ -1,0 +1,25 @@
+.results-container{
+    padding: 5px 10px;
+    background-color: white;
+    flex: 1;
+    margin: 10px;
+    width: auto;
+}
+
+.nominations-container{
+    flex: 1;
+    background-color: white;
+    padding: 5px 10px;
+    margin: 10px;
+    width: auto;
+}
+
+/* ul {
+    list-style: square;
+    display: block;
+}
+li {
+    line-height: 18px;
+    margin-bottom: 12px;
+    display: inline-block;
+} */
