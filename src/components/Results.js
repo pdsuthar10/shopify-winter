@@ -6,12 +6,10 @@ import { connect } from 'react-redux';
 class Results extends Component {
 
     handleOnClick = (e) =>{
-        console.log("clicked");
         this.props.addNominee(this.props.movie);
     }
 
     render() {
-        console.log(this.props.mainPageState)
         return (
             <div style={{display:"flex", padding:"10px 10px"}}>
                 <li>{this.props.movie.Title}{" ("+this.props.movie.Year+")"}</li>&nbsp;

@@ -115,17 +115,16 @@ class SearchBar extends Component {
 
 
     render() {
-        console.log(this.props);
         const {error, isLoading } = this.state;
         return (
             <div>
                 <br/><br/>
                 {/*Show banner if number of nominations equals 5*/}
                 {
-                    this.props.mainPageState.nominations.length === 5 &&
+                    this.props.mainPageState.nominations.length >= 5 &&
                     <Alert variant="success">
-                        <Alert.Heading>5 nominations added</Alert.Heading>
-                        <p>You have nominated 5 movies! Enjoy!</p>
+                        <Alert.Heading>5 Nominations Banner</Alert.Heading>
+                        <p>You have nominated atleast 5 movies! Enjoy!</p>
                     </Alert>
                 }
 
